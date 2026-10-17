@@ -1,45 +1,83 @@
 <div align="center">
 
+<!-- ▸ Row de badges cliquables (https://shields.io) : un badge = un lien. -->
 <p align="center">
-    <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/Language-C%2B%2B98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++98"></a>
-    <a href="https://datatracker.ietf.org/doc/html/rfc1459"><img src="https://img.shields.io/badge/Protocol-RFC_1459-000000?style=for-the-badge&logo=internetexplorer&logoColor=white" alt="RFC 1459"></a>
-    <a href="https://github.com/42School/norminette"><img src="https://img.shields.io/badge/Code_Style-Norminette-brightgreen?style=for-the-badge&logo=42&logoColor=white" alt="Norminette"></a>
-    <a href="https://hexchat.github.io/"><img src="https://img.shields.io/badge/Compatibility-HexChat-02A8F3?style=for-the-badge&logo=chat&logoColor=white" alt="HexChat"></a>
-    <a href="https://fr.wikipedia.org/wiki/École_42"><img src="https://img.shields.io/badge/Licence-42-lightgrey?style=for-the-badge&logo=42&logoColor=white" alt="Licence 42"></a>
+  <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/Language-C%2B%2B98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++98"></a>
+  <a href="https://datatracker.ietf.org/doc/html/rfc1459"><img src="https://img.shields.io/badge/Protocol-RFC_1459-000000?style=for-the-badge&logo=internetexplorer&logoColor=white" alt="RFC 1459"></a>
+  <a href="https://github.com/42School/norminette"><img src="https://img.shields.io/badge/Code_Style-Norminette-brightgreen?style=for-the-badge&logo=42&logoColor=white" alt="Norminette"></a>
+  <a href="https://hexchat.github.io/"><img src="https://img.shields.io/badge/Compatibility-HexChat-02A8F3?style=for-the-badge&logo=chat&logoColor=white" alt="HexChat"></a>
+  <a href="https://github.com/Lamizana/FT_IRC"><img src="https://img.shields.io/badge/Projet-42-000000?style=for-the-badge&logo=42&logoColor=white" alt="Projet 42"></a>
 </p>
 
-# FT_IRC
+<h1>FT_IRC</h1>
 
-<p align="center">
-  <strong>Projet 42</strong>
-</p>
-
-<p align="center">
-  <em>Serveur IRC développé en C++98 (RFC 1459)<br>Permet à plusieurs clients de communiquer en temps réel via TCP/IP (IPv4)<em>
-</p>
+<p><strong>Serveur IRC en C++98 conforme à la RFC 1459, où plusieurs clients dialoguent en temps réel via TCP/IP.</strong></p>
 
 <a href="https://lamizana.github.io/ZehdBox/projets/ft_irc/">
   <img src="https://img.shields.io/badge/Portfolio-ZehdBox-8A2BE2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio ZehdBox">
 </a>
 
+<p>Créé le 08/12/2023 · Dernière mise à jour : 17/10/2026</p>
+
 </div>
 
 ---
 
-
-
 ## Sommaire
+
+<details>
+<summary>Afficher le sommaire</summary>
+
+- [Sommaire](#sommaire)
+- [À propos](#à-propos)
+- [Stack technique](#stack-technique)
 - [Fonctionnalités](#fonctionnalités)
-- [Prérequis](#prérequis)
+- [Comment ça marche](#comment-ça-marche)
 - [Installation](#installation)
-- [Compilation](#compilation)
-- [Lancement](#lancement)
+  - [Prérequis](#prérequis)
+  - [Étapes](#étapes)
+  - [Compilation](#compilation)
+  - [Lancement](#lancement)
+- [Bibliothèques](#bibliothèques)
 - [Utilisation](#utilisation)
 - [HexChat](#hexchat)
 - [Structure du projet](#structure-du-projet)
 - [Tests](#tests)
 - [Limitations connues](#limitations-connues)
+- [Contribuer](#contribuer)
 - [Auteurs](#auteurs)
+- [Remerciements](#remerciements)
+
+</details>
+
+---
+
+## À propos
+
+**FT_IRC** est un serveur IRC écrit en C++98 d'après la RFC 1459. Il accepte plusieurs clients simultanément sur une seule socket d'écoute et les fait dialoguer par canaux publics ou locaux, messages privés et commandes d'opérateur.
+
+Le serveur ne dépend d'aucune bibliothèque externe, comme l'impose le sujet : l'écoute, l'acceptation des connexions et la lecture des messages reposent uniquement sur les appels système POSIX, orchestrés par `select()` pour qu'aucun client ne bloque les autres.
+
+Le tout tient dans un seul binaire, `ircserv`, lancé avec un port et un mot de passe.
+
+| Ressource | Lien |
+| --- | --- |
+| *Fiche du projet (portfolio)* | [ZehdBox](https://lamizana.github.io/ZehdBox/projets/ft_irc/) |
+| *Dépôt* | [github.com/Lamizana/FT_IRC](https://github.com/Lamizana/FT_IRC) |
+
+---
+
+## Stack technique
+
+| Catégorie | Technologie | Badge |
+| --- | --- | --- |
+| **Langage** | C++98, norme 42 | [![C++98](https://img.shields.io/badge/C%2B%2B-98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/) |
+| **Réseau** | Sockets TCP/IPv4, multiplexage par `select()` | [![Sockets](https://img.shields.io/badge/POSIX-sockets-4E5EE4?style=for-the-badge&logo=linux&logoColor=white)](https://pubs.opengroup.org/onlinepubs/9699919799/functions/select.html) |
+| **Protocole** | IRC, RFC 1459 | [![RFC 1459](https://img.shields.io/badge/RFC-1459-000000?style=for-the-badge&logo=internetexplorer&logoColor=white)](https://datatracker.ietf.org/doc/html/rfc1459) |
+| **Compilation** | `c++`, Makefile, sans relink | [![Makefile](https://img.shields.io/badge/Build-Makefile-427819?style=for-the-badge&logo=gnu&logoColor=white)](https://www.gnu.org/software/make/) |
+| **Client de test** | HexChat, `nc` | [![HexChat](https://img.shields.io/badge/Client-HexChat-02A8F3?style=for-the-badge&logo=chat&logoColor=white)](https://hexchat.github.io/) |
+
+---
 
 ## Fonctionnalités
 
@@ -52,32 +90,66 @@
 - Gestion multi-clients non bloquante via `select()`
 - Bonus : bot Pierre-Papier-Ciseaux (`BOT`) et compatibilité HexChat (`CAP`)
 
-## Prérequis
+Le détail de chaque commande se trouve dans la section [Utilisation](#utilisation).
+
+---
+
+## Comment ça marche
+
+Le serveur ne crée jamais de thread ni de processus : il repose entièrement sur `select()`, qui lui rend la main dès qu'un descripteur de fichier est prêt, et sur un tampon par client qui recompose les messages arrivés en plusieurs morceaux.
+
+1. **Vérification des arguments** (`checkArgs`) : le port et le mot de passe sont validés avant tout appel réseau.
+2. **Création du serveur** : la socket est créée, attachée au port, mise en écoute, puis inscrite dans un `fd_set` par `FD_SET`.
+3. **Boucle principale** : à chaque tour, `select()` surveille l'ensemble des descripteurs. Le programme ne bloque jamais sur un client en particulier.
+4. **Nouvelle connexion** : `accept()` crée la socket du client, qui rejoint la liste et le `fd_set`.
+5. **Données reçues** : `recv()` remplit le tampon. Si la ligne n'est pas terminée par `\n`, le fragment est accumulé pour ce client. Sinon, la commande complète est découpée, puis aiguillée vers son gestionnaire par `Server::command`.
+6. **Déconnexion** : `recv()` renvoie 0, ou le client envoie `QUIT`, alors la socket est fermée, retirée du `fd_set` par `FD_CLR` et le client est supprimé de la liste.
+7. **Arrêt** : `SIGINT` n'est pas ignoré. Il déclenche une exception qui déroule la pile, libère les ressources et ferme la socket d'écoute.
+
+```console
+        socket() ──► bind() ──► listen()
+            │
+            └──► boucle select()
+                    ├── descripteur prêt        ──► accept()  ──► FD_SET
+                    ├── données reçues          ──► recv()
+                    │        ├── ligne incomplète ──► bufTmp(PUSH)   (tampon par client)
+                    │        └── ligne complète   ──► découpage ──► Server::command() ──► réponse
+                    └── connexion fermée        ──► close() ──► FD_CLR ──► removeClient()
+```
+
+> [!NOTE]
+> Le tampon par client est ce qui permet de recevoir une commande découpée en plusieurs paquets réseau. C'est ce que vérifie le test « réception de données partielles » plus bas, où `com`, puis `man`, puis `d` finissent par former `command`.
+
+---
+
+## Installation
+
+### Prérequis
 
 - Système Unix/Linux (macOS pris en charge)
 - Compilateur `c++` compatible norme C++98
 - `make`
 - `nc` ou un client IRC (HexChat, irssi, WeeChat...) pour se connecter
 
-## Installation
-
-### Récupération du dépôt
+### Étapes
 
 ```bash
-git clone https://github.com/Lamizana/ft_irc.git
-cd ft_irc
+git clone https://github.com/Lamizana/FT_IRC.git
+cd FT_IRC
+make
 ```
 
 > [!NOTE]
-> Variante SSH : `git clone git@github.com:Lamizana/ft_irc.git`
+> Variante SSH : `git clone git@github.com:Lamizana/FT_IRC.git`
 
-## Compilation
+### Compilation
 
 ```bash
 make        # règle all
 ```
-- Le Makefile fournit les règles : `all`, `clean`, `fclean` et `re`.
-- Compilation avec `c++` et les drapeaux `-Wall -Wextra -Werror` en norme C++98.
+
+- Le Makefile fournit les règles `all`, `clean`, `fclean` et `re`.
+- Compilation avec `c++` et les drapeaux `-Wall -Wextra -Werror -std=c++98`.
 - Le Makefile ne relink pas.
 
 ```bash
@@ -86,22 +158,40 @@ make fclean     # supprime les objets + l'exécutable
 make re         # fclean + all
 ```
 
-## Lancement
+### Lancement
 
 ```bash
 ./ircserv <port> <password>
 ```
+
 - **port** : numéro de port sur lequel le serveur IRC écoutera les connexions entrantes.
 - **password** : mot de passe de connexion requis pour tout client.
 
-> Exemple :
 ```bash
 ./ircserv 6667 toto
 ```
 
+---
+
+## Bibliothèques
+
+Aucune bibliothèque externe : le sujet les interdit, Boost compris. Le projet n'utilise que la bibliothèque standard C++98 et les en-têtes système POSIX.
+
+| En-tête | Rôle |
+| --- | --- |
+| [`<sys/socket.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_socket.h.html) | `socket`, `bind`, `listen`, `accept`, `recv`, `send` |
+| [`<sys/select.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_select.h.html) | `select` et `fd_set` : le multiplexage des descripteurs |
+| [`<netinet/in.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/netinet_in.h.html) | Structures d'adresses IPv4 (`sockaddr_in`) |
+| [`<arpa/inet.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/arpa_inet.h.html) | Conversions d'adresses |
+| [`<unistd.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html) | `read`, `write`, `close` |
+| [`<signal.h>`](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/signal.h.html) | Interception de `SIGINT` pour l'arrêt propre |
+
+---
+
 ## Utilisation
 
 ### Connexion avec nc
+
 ```bash
 nc 127.0.0.1 6667
 PASS toto
@@ -111,6 +201,7 @@ JOIN #general
 ```
 
 ### Connexion avec un client IRC (HexChat, irssi, WeeChat...)
+
 - Adresse : `127.0.0.1`
 - Port    : `6667`
 - Mot de passe : `toto`
@@ -168,7 +259,8 @@ JOIN #general
 | `PART #general :a+` | Quitte le canal |
 | `BOT PAPER` | Bonus : joue à Pierre-Papier-Ciseaux avec le BOT |
 
-### Exemple de session :
+### Exemple de session
+
 ```bash
 ./ircserv 6667 toto     # Terminal 1 : lancement du serveur
 
@@ -184,30 +276,37 @@ PRIVMSG #general :salut tout le monde !
 PART #general
 ```
 
+---
+
 ## HexChat
 
-### Installation (Ubuntu/Debian) :
+### Installation (Ubuntu/Debian)
+
 ```bash
 sudo apt update
 sudo apt install hexchat
 ```
 
-### Lancement :
+### Lancement
+
 ```bash
 hexchat
 ```
+
 - Fenêtre « Réseaux » : bouton **+ Add** pour créer un réseau.
 - Onglet **Connexion** : cocher « Utiliser un mot de passe » et saisir `toto`.
 - Onglet **Utilisateur** : définir le pseudo et le nom d'utilisateur.
 - Dans « Serveurs », ajouter `127.0.0.1/6667` puis cliquer sur **Connecter**.
 
-### Ou en commandes internes à HexChat :
+### Ou en commandes internes à HexChat
+
 ```bash
 /server 127.0.0.1 6667 toto
 /join #general
 ```
 
-### Exemple de session :
+### Exemple de session
+
 ```bash
 /server 127.0.0.1 6667 toto
 /join #general
@@ -219,10 +318,12 @@ hexchat
 /part #general
 ```
 
+---
+
 ## Structure du projet
 
-```
-ft_irc/
+```console
+FT_IRC/
 ├── Makefile              # règles all, clean, fclean, re
 ├── main.cpp              # boucle serveur (select) et gestion des connexions
 ├── define.hpp            # numerics et messages IRC
@@ -243,27 +344,37 @@ ft_irc/
     └── allClient.cpp                # réponses NAMES/ENDOFNAMES
 ```
 
+---
+
 ## Tests
 
 ### Connexion multiple
+
 Ouvrir plusieurs terminaux et se connecter simultanément (`nc 127.0.0.1 <port>`) pour vérifier la gestion multi-clients.
 
 ### Réception de données partielles
+
 Envoyer une commande en plusieurs fragments avec nc et Ctrl+D :
+
 ```bash
 $> nc 127.0.0.1 6667
 com^Dman^Dd
 $>
 ```
+
 `com`, puis `man`, puis `d` + Entrée reconstruisent la commande transmise au serveur.
 
 ### Commandes opérateurs
+
 Créer un canal, donner `+o` à un utilisateur, puis tester `KICK`, `TOPIC` et `MODE`.
 
 ### Valgrind
+
 ```bash
 valgrind --track-origins=yes --leak-check=full --track-fds=yes ./ircserv <port> <password>
 ```
+
+---
 
 ## Limitations connues
 
@@ -271,18 +382,49 @@ valgrind --track-origins=yes --leak-check=full --track-fds=yes ./ircserv <port> 
 
 ---
 
+## Contribuer
+
+Projet pédagogique 42 : les corrections et les remarques sont bienvenues via une **issue** ou une **pull request**.
+
+Les messages de commit suivent [Conventional Commits](https://www.conventionalcommits.org/fr/) :
+
+```text
+<type>(<scope>): <description>
+```
+
+| Type | Usage |
+| --- | --- |
+| `feat` | Nouvelle fonctionnalité |
+| `fix` | Correction de bug |
+| `docs` | Documentation seule |
+| `refactor` | Réécriture sans changement de comportement |
+| `chore` | Maintenance (configuration, fichiers annexes) |
+
+**Scopes** : `server`, `client`, `channel`, `parsing`, `readme`.
+
+---
+
 ## Auteurs
 
-**Alex Lamizana** : Étudiant 42 Angoulême, spécialisation Data & IA
+**Alex Lamizana**, étudiant à 42 Angoulême, spécialisation Data & IA
 
-**mvitiell**
+- [Site](https://lamizana.github.io/ZehdBox/)
+- [GitHub](https://github.com/Lamizana)
+- [Contact](https://lamizana.github.io/ZehdBox/contact/)
 
-**nminotte**
+**mvitiell**, **nminotte** : coéquipiers sur le projet.
+
+---
+
+## Remerciements
+
+- **42 Angoulême** : cadre pédagogique du projet.
+- **mvitiell** et **nminotte** : conception et développement du serveur.
+
+---
 
 <div align="center">
 
-*Ce projet a été réalisé conformément à la norme et au sujet officiel de 42.*
+*Ce projet a été réalisé conformément à la norme de 42.*
 
 </div>
-
----
