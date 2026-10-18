@@ -62,7 +62,6 @@ Le tout tient dans un seul binaire, `ircserv`, lancé avec un port et un mot de 
 | Ressource | Lien |
 | --- | --- |
 | *Fiche du projet (portfolio)* | [ZehdBox](https://lamizana.github.io/ZehdBox/projets/ft_irc/) |
-| *Dépôt* | [github.com/Lamizana/FT_IRC](https://github.com/Lamizana/FT_IRC) |
 
 ---
 
