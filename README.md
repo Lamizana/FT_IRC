@@ -1,5 +1,19 @@
 <div align="center">
 
+
+<h1>FT_IRC</h1>
+
+<p><strong>Serveur IRC en C++98 conforme à la RFC 1459, où plusieurs clients dialoguent en temps réel via TCP/IP.</strong></p>
+
+
+
+<p>Créé le 08/12/2023 · Dernière mise à jour : 17/10/2026</p>
+
+</div>
+
+---
+
+<div align="center">
 <!-- ▸ Row de badges cliquables (https://shields.io) : un badge = un lien. -->
 <p align="center">
   <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/Language-C%2B%2B98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++98"></a>
@@ -9,16 +23,9 @@
   <a href="https://github.com/Lamizana/FT_IRC"><img src="https://img.shields.io/badge/Projet-42-000000?style=for-the-badge&logo=42&logoColor=white" alt="Projet 42"></a>
 </p>
 
-<h1>FT_IRC</h1>
-
-<p><strong>Serveur IRC en C++98 conforme à la RFC 1459, où plusieurs clients dialoguent en temps réel via TCP/IP.</strong></p>
-
 <a href="https://lamizana.github.io/ZehdBox/projets/ft_irc/">
   <img src="https://img.shields.io/badge/Portfolio-ZehdBox-8A2BE2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio ZehdBox">
 </a>
-
-<p>Créé le 08/12/2023 · Dernière mise à jour : 17/10/2026</p>
-
 </div>
 
 ---
