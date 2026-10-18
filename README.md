@@ -13,7 +13,6 @@
 
 ---
 
-<div align="center">
 <!-- ▸ Row de badges cliquables (https://shields.io) : un badge = un lien. -->
 <p align="center">
   <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/Language-C%2B%2B98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++98"></a>
@@ -22,11 +21,6 @@
   <a href="https://hexchat.github.io/"><img src="https://img.shields.io/badge/Compatibility-HexChat-02A8F3?style=for-the-badge&logo=chat&logoColor=white" alt="HexChat"></a>
   <a href="https://github.com/Lamizana/FT_IRC"><img src="https://img.shields.io/badge/Projet-42-000000?style=for-the-badge&logo=42&logoColor=white" alt="Projet 42"></a>
 </p>
-
-<a href="https://lamizana.github.io/ZehdBox/projets/ft_irc/">
-  <img src="https://img.shields.io/badge/Portfolio-ZehdBox-8A2BE2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio ZehdBox">
-</a>
-</div>
 
 ---
 
